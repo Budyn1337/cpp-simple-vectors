@@ -1,8 +1,7 @@
 /*
-* @author: Micha³ Medyñski
-* @contact: discord: budyn#2962, mail: misiek1566@gmail.com
+* @author: Michal Medynski
+* @contact: mail: misiek1566@gmail.com
 */
-#pragma once
 #include "vector1.hpp"
 #include "vector2.hpp"
 #include "vector3.hpp"
