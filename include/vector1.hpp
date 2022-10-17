@@ -1,6 +1,6 @@
 /*
-* @author: Micha³ Medyñski
-* @contact: discord: budyn#2962, mail: misiek1566@gmail.com
+* @author: Michal Medynski
+* @contact: mail: misiek1566@gmail.com
 */
 #include "vector.hpp"
 
