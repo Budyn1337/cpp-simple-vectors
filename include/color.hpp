@@ -1,8 +1,10 @@
 /*
-* @author: Micha³ Medyñski
+* @author: MichaÂ³ MedyÃ±ski
 * @contact: discord: budyn#2962, mail: misiek1566@gmail.com
 */
 #include <algorithm>
+
+#define NOMINMAX
 
 struct Color
 {
