@@ -11,13 +11,6 @@ Color::Color()
 	a(1.0f) 
 {}
 
-Color::Color(unsigned int r, unsigned int g, unsigned int b, unsigned int a)
-	:r(static_cast<float>(std::min(r, 255u) / 255.0f)),
-	g(static_cast<float>(std::min(g, 255u) / 255.0f)),
-	b(static_cast<float>(std::min(b, 255u) / 255.0f)),
-	a(static_cast<float>(std::min(a, 255u) / 255.0f))
-{}
-
 Color::Color(float r, float g, float b, float a)
 	:r(std::min(r, 1.0f)),
 	g(std::min(g, 1.0f)),
@@ -25,14 +18,16 @@ Color::Color(float r, float g, float b, float a)
 	a(std::min(a, 1.0f)) 
 {}
 
-Color::Color(unsigned long hexColor)
+Color::Color(HexColor hex)
 {
-	*this = HexToRgb(hexColor);
+	*this = HexToRgb(hex);
 }
 
-Color::Color(const Color& copy)
+Color::Color(HexColor hex, float a)
 {
-	*this = copy;
+	*this = HexToRgb(hex);
+
+	this->a = a;
 }
 
 void Color::operator=(const Color& color)
@@ -43,7 +38,7 @@ void Color::operator=(const Color& color)
 	a = color.a;
 }
 
-void Color::operator=(unsigned long hex)
+void Color::operator=(HexColor hex)
 {
 	*this = HexToRgb(hex);
 }
@@ -74,9 +69,9 @@ unsigned long Color::GetHexColor() const
 	return ret;
 }
 
-Color Color::HexToRgb(unsigned long hex)
+Color Color::HexToRgb(HexColor hex)
 {
-	hex = std::min(hex, static_cast<unsigned long>(0xFFFFFF));
+	hex = std::min(hex, static_cast<HexColor>(0xFFFFFF));
 
 	return Color(
 		static_cast<float>(((hex >> 16ul) & 0xFF) / 255.0f),
